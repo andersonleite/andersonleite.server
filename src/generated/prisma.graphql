@@ -1,5 +1,5 @@
 # source: https://us1.prisma.sh/anderson-leite/andersonleite/dev
-# timestamp: Thu May 16 2019 14:52:32 GMT-0700 (PDT)
+# timestamp: Fri May 17 2019 11:47:12 GMT-0700 (PDT)
 
 type AggregatePost {
   count: Int!
@@ -58,7 +58,10 @@ type Post implements Node {
   id: ID!
   title: String!
   content: String!
+  link: String!
   date: DateTime!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 """A connection to a list of items."""
@@ -75,6 +78,7 @@ input PostCreateInput {
   id: ID
   title: String!
   content: String!
+  link: String!
   date: DateTime!
 }
 
@@ -94,15 +98,24 @@ enum PostOrderByInput {
   title_DESC
   content_ASC
   content_DESC
+  link_ASC
+  link_DESC
   date_ASC
   date_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type PostPreviousValues {
   id: ID!
   title: String!
   content: String!
+  link: String!
   date: DateTime!
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type PostSubscriptionPayload {
@@ -147,12 +160,14 @@ input PostSubscriptionWhereInput {
 input PostUpdateInput {
   title: String
   content: String
+  link: String
   date: DateTime
 }
 
 input PostUpdateManyMutationInput {
   title: String
   content: String
+  link: String
   date: DateTime
 }
 
@@ -285,6 +300,46 @@ input PostWhereInput {
 
   """All values not ending with the given string."""
   content_not_ends_with: String
+  link: String
+
+  """All values that are not equal to given value."""
+  link_not: String
+
+  """All values that are contained in given list."""
+  link_in: [String!]
+
+  """All values that are not contained in given list."""
+  link_not_in: [String!]
+
+  """All values less than the given value."""
+  link_lt: String
+
+  """All values less than or equal the given value."""
+  link_lte: String
+
+  """All values greater than the given value."""
+  link_gt: String
+
+  """All values greater than or equal the given value."""
+  link_gte: String
+
+  """All values containing the given string."""
+  link_contains: String
+
+  """All values not containing the given string."""
+  link_not_contains: String
+
+  """All values starting with the given string."""
+  link_starts_with: String
+
+  """All values not starting with the given string."""
+  link_not_starts_with: String
+
+  """All values ending with the given string."""
+  link_ends_with: String
+
+  """All values not ending with the given string."""
+  link_not_ends_with: String
   date: DateTime
 
   """All values that are not equal to given value."""
@@ -307,6 +362,50 @@ input PostWhereInput {
 
   """All values greater than or equal the given value."""
   date_gte: DateTime
+  createdAt: DateTime
+
+  """All values that are not equal to given value."""
+  createdAt_not: DateTime
+
+  """All values that are contained in given list."""
+  createdAt_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  createdAt_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  createdAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  createdAt_lte: DateTime
+
+  """All values greater than the given value."""
+  createdAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+
+  """All values that are not equal to given value."""
+  updatedAt_not: DateTime
+
+  """All values that are contained in given list."""
+  updatedAt_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  updatedAt_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  updatedAt_lt: DateTime
+
+  """All values less than or equal the given value."""
+  updatedAt_lte: DateTime
+
+  """All values greater than the given value."""
+  updatedAt_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  updatedAt_gte: DateTime
 }
 
 input PostWhereUniqueInput {
