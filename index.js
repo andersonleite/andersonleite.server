@@ -1,6 +1,7 @@
 require('dotenv').config({ path: 'variables.env' });
 const createServer = require('./createServer');
 const db = require('./db');
+const http = require('http')
 
 const server = createServer();
 
@@ -28,3 +29,7 @@ server.start(
     console.log(`Server is now running on port http://localhost:${deets.port}`);
   }
 );
+
+setInterval(() => {
+  http.get('https://andersonleitedev-b731d1c3c4.herokuapp.com/andersonleitedev-prod/prod')
+}, 300000);
