@@ -1,3 +1,4 @@
 
 node_modules/
 variables.env
+newrelic_agent.log

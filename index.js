@@ -1,6 +1,7 @@
 require('newrelic');
 require('dotenv').config({ path: 'variables.env' });
 const createServer = require('./createServer');
+const https = require('https')
 const db = require('./db');
 
 const server = createServer();
@@ -29,3 +30,9 @@ server.start(
     console.log(`Server is now running on port http://localhost:${deets.port}`);
   }
 );
+
+setInterval(()=>{
+  https.get('https://andersonleitegithubcom.andersonleite.now.sh', (res) => {
+    console.log(res.statusCode);
+  })
+}, 30000)
