@@ -11,3 +11,6 @@ https://spectrum.chat/zeit/now/deploying-prisma-on-zeit-now-2~95567203-6656-4559
 
 Deploy Yoga
 now -e PRISMA_ENDPOINT="https://andersonleitedev-b731d1c3c4.herokuapp.com/andersonleitedev-prod/prod"
+
+Uptime Robot
+https://uptimerobot.com/dashboard#782854638
